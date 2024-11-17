@@ -1,13 +1,10 @@
 import clsx from "clsx";
 import { ComponentProps } from "react";
 import { Frame } from "~/components/Frame";
-import { NavigationLink } from "~/content/links";
 import { Logo } from "./Logo";
 import { NavigationMobileMenu } from "./NavigationMobileMenu";
 
-interface NavigationMobileProps extends ComponentProps<"div"> {
-    navigationLinks: NavigationLink[];
-}
+interface NavigationMobileProps extends ComponentProps<"div"> {}
 
 export function NavigationMobile({ className }: NavigationMobileProps) {
     return (

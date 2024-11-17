@@ -3,13 +3,14 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { NavLink } from "@remix-run/react";
 import { useEffect, useState } from "react";
 import { Frame } from "~/components/Frame";
-import { NavigationLink, getNavigationLinks } from "~/content/links";
+import { LangSwitcher } from "~/components/LangSwitcher";
+import { NavigationLink, links } from "~/content/links";
 import { useBodyOverflow } from "~/hooks/useBodyOverflow";
 import { localizeRoute, useLangContext } from "~/lang/lang";
 import { Logo } from "./Logo";
 
 export function NavigationMobileMenu() {
-    const [isOpen, setIsOpen] = useState<boolean>(true);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
     const { hideOverflow, showOverflow } = useBodyOverflow();
     function onOpenChange(newIsOpen: boolean) {
         setIsOpen(newIsOpen);
@@ -41,6 +42,7 @@ export function NavigationMobileMenu() {
             <Dialog.Portal>
                 <Dialog.Content className='fixed left-0 top-0 z-30 h-full w-screen overflow-y-auto bg-white data-[state=closed]:animate-[mobile-menu-hide_200ms] data-[state=open]:animate-[mobile-menu-show_300ms]'>
                     <Dialog.Title className='sr-only'>Navigation Menu</Dialog.Title>
+                    <Dialog.Description className='sr-only'>Main navigation options</Dialog.Description>
                     <Frame className='py-4 flex items-center justify-between'>
                         <Logo
                             onClick={closeWholeMeu}
@@ -60,9 +62,10 @@ export function NavigationMobileMenu() {
 
 function MenuLinks({ onClose }: { onClose: () => void }) {
     const lang = useLangContext();
-    const navigationLinks = getNavigationLinks(lang);
+    const navigationLinks = links.getNavigationLinks(lang);
     return (
-        <Frame className=' grid gap-8 pt-4'>
+        <Frame className='grid gap-5 pt-4'>
+            {/* navigation links */}
             <div className='grid gap-2'>
                 {navigationLinks.map((link) => (
                     <MenuNavigationLink
@@ -72,6 +75,16 @@ function MenuLinks({ onClose }: { onClose: () => void }) {
                     />
                 ))}
             </div>
+            {/* social links */}
+            <SocialLinks />
+
+            {/* lang selector */}
+
+            <LangSwitcher
+                iconClass='size-5'
+                className='border border-black/10 rounded-lg px-2 py-2'
+                onClose={onClose}
+            />
         </Frame>
     );
 }
@@ -94,5 +107,25 @@ function MenuNavigationLink({ link, onClose }: { link: NavigationLink; onClose: 
         >
             {link.label}
         </NavLink>
+    );
+}
+
+function SocialLinks() {
+    const socialLinks = links.getSocialLinks();
+
+    return (
+        <div className='grid grid-cols-3 gap-2'>
+            {socialLinks.map((link) => {
+                return (
+                    <a
+                        href={link.route}
+                        key={link.route}
+                        className='px-4 py-1 rounded-lg border border-black/10 text-center'
+                    >
+                        {link.label}
+                    </a>
+                );
+            })}
+        </div>
     );
 }

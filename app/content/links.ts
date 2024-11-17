@@ -28,9 +28,35 @@ const LINKS: Record<string, NavigationLink[]> = {
     ],
 };
 
+const SOCIAL_LINKS: NavigationLink[] = [
+    {
+        label: "Telegram",
+        route: "https://t.me/RailabMac",
+    },
+    {
+        label: "Instagram",
+        route: "https://www.instagram.com/railabmac/",
+    },
+    {
+        label: "Facebook",
+        route: "https://m.facebook.com/RaiLabMacBook",
+    },
+    {
+        label: "Twitter",
+        route: "https://twitter.com/RailabMac",
+    },
+];
+
 export function getNavigationLinks(lang: Lang): NavigationLink[] {
     if (!LINKS[lang]) {
         throw new Error("Unavailable link for lang: " + lang);
     }
     return LINKS[lang];
 }
+
+export const links = {
+    getNavigationLinks,
+    getSocialLinks() {
+        return SOCIAL_LINKS;
+    },
+};

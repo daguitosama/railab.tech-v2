@@ -1,10 +1,8 @@
-import { getNavigationLinks } from "~/content/links";
 import { useLangContext } from "~/lang/lang";
 import { NavigationMobile } from "./NavigationMobile";
 
 export function Navigation() {
     const lang = useLangContext();
-    const navigationLinks = getNavigationLinks(lang);
     return (
         <nav
             className=' fixed top-0 left-0 w-full'
@@ -17,10 +15,7 @@ export function Navigation() {
                 {lang == "en" ? "Main Navigation" : "Navegación principal"}
             </h2>
 
-            <NavigationMobile
-                className='lg:hidden'
-                navigationLinks={navigationLinks}
-            />
+            <NavigationMobile className='lg:hidden' />
         </nav>
     );
 }
