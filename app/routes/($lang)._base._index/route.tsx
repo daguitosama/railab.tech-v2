@@ -1,5 +1,6 @@
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { Frame } from "~/components/Frame";
+import { ReviewsSection } from "~/components/Reviews";
 import { getLang, getLangFromLoaderData } from "~/lang/lang";
 import { Intro } from "./components/Intro";
 import { Services } from "./components/Services";
@@ -18,6 +19,7 @@ export default function Index() {
         <Frame className='grid gap-20 md:gap-32'>
             <Intro />
             <Services />
+            <ReviewsSection />
         </Frame>
     );
 }
