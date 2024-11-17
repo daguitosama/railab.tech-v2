@@ -9,7 +9,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
 export const meta: MetaFunction = ({ data }) => {
     const lang = getLangFromLoaderData(data);
-    return [{ title: lang == "es" ? "Contacto | Railab" : "Contact | Railab" }];
+    return [{ title: lang == "es" ? "Contáctenos | Railab" : "Contact us | Railab" }];
 };
 
 export default function Index() {
