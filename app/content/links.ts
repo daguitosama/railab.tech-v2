@@ -31,7 +31,11 @@ const LINKS: Record<string, NavigationLink[]> = {
 const SOCIAL_LINKS: NavigationLink[] = [
     {
         label: "Telegram",
-        route: "https://t.me/RailabMac",
+        route: "https://t.me/RaikMac",
+    },
+    {
+        route: "https://wa.me/+5354132120",
+        label: "WhatsApp",
     },
     {
         label: "Instagram",
