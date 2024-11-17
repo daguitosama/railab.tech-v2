@@ -14,7 +14,7 @@ export function useLangContext() {
 
 // Utils
 export function getLang(params: Params<string>): Lang {
-    const lang = params.lang ?? "en";
+    const lang = params.lang ?? "es";
     if (lang !== "es" && lang !== "en") {
         throw new Response(null, {
             status: 404,
@@ -24,9 +24,9 @@ export function getLang(params: Params<string>): Lang {
     return lang;
 }
 export function localizeRoute(route: string /* */, lang: Lang): string {
-    if (lang == "en") {
+    if (lang == "es") {
         return route;
     }
 
-    return `/es${route}`;
+    return `/en${route}`;
 }

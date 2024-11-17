@@ -17,8 +17,8 @@ export function LangSwitcher({ layout = "default", iconClass, className, onClose
     const location = useLocation();
 
     const alternatePath =
-        lang == "en"
-            ? `/es${location.pathname}` + location.search + location.hash
+        lang == "es"
+            ? `/en${location.pathname}` + location.search + location.hash
             : removeLangPrefix(location.pathname) + location.search + location.hash;
 
     return (
