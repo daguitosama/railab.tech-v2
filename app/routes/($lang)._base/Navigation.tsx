@@ -1,4 +1,5 @@
 import { useLangContext } from "~/lang/lang";
+import { NavigationLarge } from "./NavigationLarge";
 import { NavigationMobile } from "./NavigationMobile";
 
 export function Navigation() {
@@ -16,6 +17,7 @@ export function Navigation() {
             </h2>
 
             <NavigationMobile className='lg:hidden' />
+            <NavigationLarge className='hidden lg:block' />
         </nav>
     );
 }

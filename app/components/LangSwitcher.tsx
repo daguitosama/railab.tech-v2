@@ -31,10 +31,10 @@ export function LangSwitcher({ layout = "default", iconClass, className, onClose
                 {layout == "default" ? <p>{lang == "en" ? "English" : "Español"}</p> : null}
             </Popover.Trigger>
             <Popover.Portal>
-                <Popover.Content className='mt-2 relative z-30 w-[300px] min-h-20 px-3 flex items-center justify-center bg-white border border-black/30 rounded-lg shadow-lg'>
+                <Popover.Content className='mt-2 relative z-30 w-[300px] lg:w-full min-h-20 px-3 flex items-center justify-center bg-white border border-black/10 rounded-lg shadow-lg'>
                     <Link
                         to={alternatePath}
-                        className='px-2 py-2 rounded-lg border border-black w-full'
+                        className='px-4 py-2 rounded-lg border border-black w-full'
                         onClick={async () => {
                             if (onClose) {
                                 // await new Promise((res) => setTimeout(res, 300));
@@ -44,7 +44,6 @@ export function LangSwitcher({ layout = "default", iconClass, className, onClose
                     >
                         {lang == "en" ? "Español" : "English"}
                     </Link>
-                    {/* {location.pathname} */}
                 </Popover.Content>
             </Popover.Portal>
         </Popover.Root>
