@@ -1,8 +1,6 @@
 ### BASE ####
 FROM node:22.11-alpine as base
 
-ENV TURBO_TELEMETRY_DISABLED 1
-
 # we'll work inside the /app directory
 WORKDIR /app
 
@@ -18,19 +16,20 @@ COPY . .
 
 ### PROD DEPS
 FROM base AS prod-deps
+WORKDIR /app
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
 
 
 #### BUILD  #####
 FROM base AS build
+WORKDIR /app
+
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 RUN pnpm run build
 
 
 ### RUNNER ######
 FROM base as runnner
-
-# set runtime working directory
 WORKDIR /app
 
 ENV NODE_ENV=production
