@@ -15,10 +15,10 @@ COPY . .
 RUN corepack enable
 
 # install dependencies
-RUN yarn build
+RUN yarn install
 
 # build Remix project
-RUN npm run build
+RUN yarn build
 
 ################################################################################################
 #          Runner: 👇 this is the final image that will be used in at runtime                     #
@@ -40,13 +40,13 @@ RUN chown -R remix:remix /app
 # copy files from the builder
 COPY --from=builder     --chown=remix:remix     /app/package.json 		    /app/package.json
 COPY --from=builder     --chown=remix:remix     /app/build                  /app/build
-COPY --from=builder     --chown=remix:remix     /app/server.js                  /app/server.js
+COPY --from=builder     --chown=remix:remix     /app/server.js              /app/server.js
 
 # Setup Yarn
 RUN corepack enable
 
 # install production dependencies only
-RUN yarn install --production
+RUN yarn workspaces focus railab-tech-rmx --production
 
 # remove unnecessary files
 RUN wget https://gobinaries.com/tj/node-prune --output-document - | /bin/sh

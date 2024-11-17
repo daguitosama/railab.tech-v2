@@ -2,14 +2,14 @@ name: |
     [DEV] Docker Build & Publish
 
 concurrency:
-    group: 1nationup-storefront-docker-dev
+    group: railab-tech
     cancel-in-progress: true
 
 on:
     workflow_dispatch:
     push:
         branches:
-            - develop
+            - main
 
 env:
     REGISTRY: ghcr.io
