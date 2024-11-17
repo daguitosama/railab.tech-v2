@@ -34,6 +34,7 @@ export function LangSwitcher({ layout = "default", iconClass, className, onClose
                 <Popover.Content className='mt-2 relative z-30 w-[300px] lg:w-full min-h-20 px-3 flex items-center justify-center bg-white border border-black/10 rounded-lg shadow-lg'>
                     <Link
                         to={alternatePath}
+                        preventScrollReset={true}
                         className='px-4 py-2 rounded-lg border border-black w-full'
                         onClick={async () => {
                             if (onClose) {
