@@ -23,7 +23,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <Meta />
                 <Links />
             </head>
-            <body>
+            <body className='antialiased text-base-text-color'>
                 <LangContext.Provider value={lang}>
                     {/*  */}
                     {children}
