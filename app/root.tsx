@@ -1,7 +1,7 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from "@remix-run/react";
 
 import { LoaderFunctionArgs } from "@remix-run/node";
-import { LangContext, getLang } from "./lang";
+import { LangContext, getLang } from "./lang/lang";
 import "./tailwind.css";
 
 export async function loader({ params }: LoaderFunctionArgs) {

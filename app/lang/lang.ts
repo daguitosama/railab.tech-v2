@@ -6,6 +6,12 @@ export const SupportedLangs = ["en", "es"];
 export type Lang = "en" | "es";
 //
 
+// Context
+export const LangContext = createContext<Lang>("en");
+export function useLangContext() {
+    return useContext(LangContext);
+}
+
 // Utils
 export function getLang(params: Params<string>): Lang {
     const lang = params.lang ?? "en";
@@ -17,9 +23,10 @@ export function getLang(params: Params<string>): Lang {
     }
     return lang;
 }
+export function localizeRoute(route: string /* */, lang: Lang): string {
+    if (lang == "en") {
+        return route;
+    }
 
-// Context
-export const LangContext = createContext("en");
-export function useLangContext() {
-    return useContext(LangContext);
+    return `/es${route}`;
 }
