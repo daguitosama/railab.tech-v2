@@ -1,7 +1,6 @@
 ### BASE ####
 FROM node:22.11-alpine as base
 
-ENV NODE_ENV=production
 ENV TURBO_TELEMETRY_DISABLED 1
 
 # we'll work inside the /app directory
