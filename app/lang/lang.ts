@@ -30,3 +30,12 @@ export function localizeRoute(route: string /* */, lang: Lang): string {
 
     return `/en${route}`;
 }
+
+export function getLangFromLoaderData(data: unknown): Lang {
+    if (!data) {
+        return "es";
+    }
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    return data?.lang as Lang;
+}
