@@ -1,4 +1,12 @@
-import { ArrowPathIcon, ArrowTrendingUpIcon, CheckBadgeIcon, Cog6ToothIcon, EyeIcon } from "@heroicons/react/24/outline";
+import {
+    ArrowPathIcon,
+    ArrowTrendingUpIcon,
+    CheckBadgeIcon,
+    Cog6ToothIcon,
+    ComputerDesktopIcon,
+    CurrencyDollarIcon,
+    EyeIcon,
+} from "@heroicons/react/24/outline";
 import { useLangContext } from "~/lang/lang";
 
 const headingEs = "Los Servicios que está buscando";
@@ -87,6 +95,29 @@ const softwareEs = {
     items: ["Instalación de sistemas operativos macOs y aplicaciones", "Instalación de Windows en Mac"],
 };
 
+//
+const rentalEs = {
+    title: "Alquiler de equipos",
+    body: "Si necesita un Mac por cierto período de tiempo intentaremos proporcionarle el equipo adecuado para la actividad que le ocupa. Con el alquiler del Mac se incluye soporte técnico, software y asesoría.",
+};
+
+const rentalEn = {
+    title: "Equipment rental",
+    body: "If you need a Mac for a certain period of time we will try to provide you with the appropriate equipment for the activity at hand. Technical support, software and advice are included with the Mac rental.",
+};
+
+//
+
+const moneyEs = {
+    title: "Gane dinero con Railab",
+    body: "Compramos Mac rotas para obtener componentes y partes necesarias para nuestro trabajo. Ud. obtiene dinero por un equipo en desuso y nosotros aseguramos que haya un Mac menos en algún basurero del país.",
+};
+
+const moneyEn = {
+    title: "Make money with Railab",
+    body: "We buy broken Macs to obtain components and parts we need to do our job. You make some money for your unused Mac and we ensure one less machine on the trash.",
+};
+
 export function Services() {
     const lang = useLangContext();
     const mainHeading = lang == "en" ? headingEn : headingEs;
@@ -96,6 +127,8 @@ export function Services() {
     const serviceUpgrade = lang == "es" ? serviceUpgradeEs : serviceUpgradeEn;
     const warranty = lang == "es" ? warrantyEs : warrantyEn;
     const software = lang == "es" ? softwareEs : softwareEn;
+    const rental = lang == "es" ? rentalEs : rentalEn;
+    const money = lang == "es" ? moneyEs : moneyEn;
     return (
         <section
             id='services'
@@ -195,7 +228,7 @@ export function Services() {
                     </div>
                 </div>
 
-                {/* mantenimiento */}
+                {/* warranty */}
                 <div className=''>
                     <div className='from-indigo-400 to-fuchsia-800 w-12 h-12 rounded-2xl shadow-md bg-gradient-to-br flex items-center justify-center'>
                         <CheckBadgeIcon
@@ -207,6 +240,61 @@ export function Services() {
                     <div className='mt-6 '>
                         <h3 className='font-extrabold text-3xl'>{warranty.title}</h3>
                         <p className='mt-4  text-opacity-80 text-lg'>{warranty.body}</p>
+                    </div>
+                </div>
+
+                {/* software */}
+                <div className=''>
+                    <div className='from-cyan-400 to-blue-800 w-12 h-12 rounded-2xl shadow-md bg-gradient-to-br flex items-center justify-center'>
+                        <ArrowPathIcon
+                            className='text-white size-8'
+                            strokeWidth={2}
+                            aria-hidden
+                        />
+                    </div>
+                    <div className='mt-6 '>
+                        <h3 className='font-extrabold text-3xl'>{software.title}</h3>
+
+                        <ul className='mt-4 list-disc pl-5 text-opacity-80 text-lg'>
+                            {software.items.map((item) => (
+                                <li
+                                    key={item}
+                                    className=''
+                                >
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+
+                {/* rental */}
+                <div className=''>
+                    <div className='from-rose-500 to-orange-800 w-12 h-12 rounded-2xl shadow-md bg-gradient-to-br flex items-center justify-center'>
+                        <ComputerDesktopIcon
+                            className='text-white size-8'
+                            strokeWidth={2}
+                            aria-hidden
+                        />
+                    </div>
+                    <div className='mt-6 '>
+                        <h3 className='font-extrabold text-3xl'>{rental.title}</h3>
+                        <p className='mt-4  text-opacity-80 text-lg'>{rental.body}</p>
+                    </div>
+                </div>
+
+                {/* rental */}
+                <div className=''>
+                    <div className='from-lime-400 to-emerald-800 w-12 h-12 rounded-2xl shadow-md bg-gradient-to-br flex items-center justify-center'>
+                        <CurrencyDollarIcon
+                            className='text-white size-8'
+                            strokeWidth={2}
+                            aria-hidden
+                        />
+                    </div>
+                    <div className='mt-6 '>
+                        <h3 className='font-extrabold text-3xl'>{money.title}</h3>
+                        <p className='mt-4  text-opacity-80 text-lg'>{money.body}</p>
                     </div>
                 </div>
             </div>
