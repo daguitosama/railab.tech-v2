@@ -2,7 +2,7 @@
 
 My friend Mac repair shop business's website.
 
-## Update
+## Content Update
 
 
 Reparación

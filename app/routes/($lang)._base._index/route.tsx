@@ -2,6 +2,7 @@ import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { Frame } from "~/components/Frame";
 import { ReviewsSection } from "~/components/Reviews";
 import { getLang, getLangFromLoaderData } from "~/lang/lang";
+import { ContactCTA } from "./components/ContactCTA";
 import { Intro } from "./components/Intro";
 import { Services } from "./components/Services";
 
@@ -20,6 +21,7 @@ export default function Index() {
             <Intro />
             <Services />
             <ReviewsSection />
+            <ContactCTA />
         </Frame>
     );
 }
