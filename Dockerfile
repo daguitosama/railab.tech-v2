@@ -1,7 +1,5 @@
 ### BASE ####
 FROM node:22.11-alpine as base
-
-# we'll work inside the /app directory
 WORKDIR /app
 
 
@@ -43,6 +41,7 @@ RUN chown -R remix:remix /app
 
 # copy files from the builder
 COPY --from=prod-deps   --chown=remix:remix     /app/node_modules       /app/node_modules
+COPY --from=prod-deps   --chown=remix:remix     /app/package.json       /app/package.json
 COPY --from=build       --chown=remix:remix     /app/build              /app/build
 COPY --from=base       --chown=remix:remix     /app/server.js          /app/server.js
 
@@ -52,5 +51,5 @@ RUN node-prune
 
 
 USER remix
-CMD [ "node ", "./server.js" ]
+CMD [ "node", "./server.js" ]
 
