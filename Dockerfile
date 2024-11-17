@@ -15,7 +15,7 @@ COPY . .
 RUN corepack enable
 
 # install dependencies
-RUN yarn install
+RUN yarn workspaces focus railab-tech-rmx
 
 # build Remix project
 RUN yarn build
