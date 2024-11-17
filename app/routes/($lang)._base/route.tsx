@@ -1,12 +1,13 @@
 import { Outlet } from "@remix-run/react";
-import { Navigation } from "./Navigation";
+import { Footer } from "./components/Footer";
+import { Navigation } from "./components/Navigation";
 
 export default function BaseLayout() {
     return (
         <div>
             <Navigation />
             <Outlet />
-            {/* <div>footer</div> */}
+            <Footer />
         </div>
     );
 }

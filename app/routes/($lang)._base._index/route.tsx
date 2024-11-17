@@ -18,7 +18,6 @@ export default function Index() {
         <Frame className='grid gap-20 md:gap-32'>
             <Intro />
             <Services />
-            <div className='h-[300px]'></div>
         </Frame>
     );
 }
