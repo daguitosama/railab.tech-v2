@@ -10,6 +10,10 @@ export default {
                 primary: "#006ee6",
                 "primary-hover": "#0055b3",
                 "base-text-color": "rgb(32 35 60);",
+                surface: {
+                    light: "white",
+                    dark: "#2C3E50",
+                },
             },
         },
     },

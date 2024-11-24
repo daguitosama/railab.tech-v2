@@ -53,7 +53,12 @@ export function ReviewsSection() {
 
 function ReviewCard({ review }: { review: Review }) {
     return (
-        <div className='bg-zinc-100 border-slate-100/20 w-full h-full rounded-xl p-4 flex flex-col gap-4'>
+        <div
+            className='w-full h-full rounded-xl p-4 flex flex-col gap-4
+        bg-zinc-100 border-slate-100/20
+        dark:bg-slate-800 border-slate-500
+        '
+        >
             {/* avatar - name */}
             <div className='flex items-center justify-start gap-4'>
                 <div

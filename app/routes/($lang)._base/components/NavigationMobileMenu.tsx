@@ -40,7 +40,7 @@ export function NavigationMobileMenu() {
                 <Bars2Icon className='size-6' />
             </Dialog.Trigger>
             <Dialog.Portal>
-                <Dialog.Content className='fixed left-0 top-0 z-30 h-full w-screen overflow-y-auto bg-white data-[state=closed]:animate-[mobile-menu-hide_200ms] data-[state=open]:animate-[mobile-menu-show_300ms]'>
+                <Dialog.Content className='fixed left-0 top-0 z-30 h-full w-screen overflow-y-auto bg-surface-light dark:bg-surface-dark data-[state=closed]:animate-[mobile-menu-hide_200ms] data-[state=open]:animate-[mobile-menu-show_300ms]'>
                     <Dialog.Title className='sr-only'>Navigation Menu</Dialog.Title>
                     <Dialog.Description className='sr-only'>Main navigation options</Dialog.Description>
                     <Frame className='py-4 flex items-center justify-between'>
@@ -82,7 +82,7 @@ function MenuLinks({ onClose }: { onClose: () => void }) {
 
             <LangSwitcher
                 iconClass='size-5'
-                className='border border-black/10 rounded-lg px-2 py-2'
+                className='border border-black/10 dark:border-slate-100/10 rounded-lg px-2 py-2'
                 onClose={onClose}
             />
         </Frame>
@@ -120,7 +120,7 @@ function SocialLinks() {
                     <a
                         href={link.route}
                         key={link.route}
-                        className='px-4 py-1 rounded-lg border border-black/10 text-center'
+                        className='px-4 py-1 rounded-lg border border-black/10 dark:border-slate-100/10 text-center'
                     >
                         {link.label}
                     </a>

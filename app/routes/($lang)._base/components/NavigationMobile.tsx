@@ -8,7 +8,7 @@ interface NavigationMobileProps extends ComponentProps<"div"> {}
 
 export function NavigationMobile({ className }: NavigationMobileProps) {
     return (
-        <div className={clsx(className, "bg-white")}>
+        <div className={clsx(className, "bg-surface-light dark:bg-surface-dark")}>
             <Frame className=' py-4 flex items-center justify-between'>
                 {/* logo */}
                 <Logo className='w-auto h-8' />
