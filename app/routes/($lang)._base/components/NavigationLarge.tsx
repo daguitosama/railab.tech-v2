@@ -9,7 +9,7 @@ import { Logo } from "./Logo";
 
 export function NavigationLarge({ className }: ComponentProps<"div">) {
     return (
-        <div className={clsx(className, "bg-white")}>
+        <div className={clsx(className, "bg-surface-light dark:bg-surface-dark")}>
             <Frame className='grid grid-cols-3 '>
                 {/* logo */}
                 <div className='flex  items-start'>
@@ -25,7 +25,7 @@ export function NavigationLarge({ className }: ComponentProps<"div">) {
                     <LangSwitcher
                         layout='minimal'
                         iconClass='size-5'
-                        className='border border-black/10 rounded-full px-2 py-2'
+                        className='border border-black/10 dark:border-slate-100/10 rounded-full px-2 py-2'
                     />
                 </div>
             </Frame>
