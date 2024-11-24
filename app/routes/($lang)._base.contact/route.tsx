@@ -42,7 +42,7 @@ function ContactLinks() {
                     >
                         <a
                             href={link.route}
-                            className=' block text-center bg-slate-100 font-medium rounded-lg px-3 py-3 border-slate-400/20 hover:bg-blue-100 hover:text-primary-hover duration-200'
+                            className=' block text-center bg-slate-100 dark:bg-slate-800 font-medium rounded-lg px-3 py-3 border-slate-400/20 hover:bg-blue-100 hover:text-primary-hover duration-200'
                         >
                             {link.label}
                         </a>

@@ -9,7 +9,7 @@ export function Footer() {
     const socialLinks = links.getSocialLinks();
     return (
         <footer className=' mt-10 '>
-            <Frame className='border-t border-t-black/10 py-10 grid gap-10'>
+            <Frame className='border-t border-t-black/10 dark:border-t-white/10 py-10 grid gap-10'>
                 <div>
                     <ul className='flex justify-center items-center flex-wrap gap-4'>
                         {navLinks.map((link) => {
